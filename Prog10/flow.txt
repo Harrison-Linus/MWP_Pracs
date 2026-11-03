@@ -1,0 +1,33 @@
+[Start: Open Website in Chrome]
+       |
+       v
+[Action: Run Initial Lighthouse Audit]
+ (Press F12 -> Lighthouse Tab -> Analyze)
+       |
+       v
+[Analyze 4 Core Metrics]
+       |---> Performance (Load times, image sizes)
+       |---> Accessibility (Color contrast, alt text)
+       |---> Best Practices (Code health, HTTPS)
+       |---> SEO (Meta tags, title, headings)
+       |
+       v
+[Implement Optimizations]
+       |---> Convert/Scale Images to WebP
+       |---> Add missing alt="..." to <img> tags
+       |---> Add <meta name="description"> to <head>
+       |---> Verify SSL/HTTPS (via Netlify deployment)
+       |
+       v
+[Action: Save & Refresh Page]
+       |
+       v
+[Action: Run Final Lighthouse Audit]
+ (Clear old report -> Analyze again)
+       |
+       v
+[Result: Compare Scores]
+ (Verify metrics improved towards 100)
+       |
+       v
+[End: Capture Screenshot for Lab Record]

@@ -1,0 +1,14 @@
+/* Clean styling for the React app */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background-color: #f4f4f9; color: #333; }
+
+.navbar { display: flex; justify-content: center; gap: 30px; background: #222; padding: 15px; }
+.navbar a { color: white; text-decoration: none; font-weight: bold; font-size: 18px; }
+.navbar a:hover { color: #3b82f6; }
+
+.container { 
+    background: #fff; padding: 40px; margin: 40px auto; 
+    border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    max-width: 500px; text-align: center; 
+}
+h1 { margin-bottom: 10px; color: #2563eb; }

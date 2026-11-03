@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <!-- Step 1: Design HTML Form -->
+        <form id="regForm">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Full Name">
+                <span id="nameErr" class="error"></span>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email Address">
+                <span id="emailErr" class="error"></span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="phone" placeholder="Phone Number (10 digits)">
+                <span id="phoneErr" class="error"></span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password (Min 6 chars)">
+                <span id="passErr" class="error"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Step 2: Attach Event Listener
+        document.getElementById('regForm').addEventListener('submit', function(event) {
+            
+            // Step 3: Prevent Default Submission
+            event.preventDefault(); 
+            
+            let isValid = true;
+
+            // Step 5: Get Form Values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            // Step 4: Define Regex Patterns
+            const nameRegex = /^[a-zA-Z\s]+$/;  // Only letters and spaces
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Standard email format
+            const phoneRegex = /^\d{10}$/; // Exactly 10 digits
+            const passRegex = /^.{6,}$/; // Any characters, minimum length 6
+
+            // Step 6 & 7: Validate Each Field and Show Error Messages
+            if (!nameRegex.test(name)) {
+                document.getElementById('nameErr').textContent = "Invalid name format";
+                isValid = false;
+            } else { document.getElementById('nameErr').textContent = ""; }
+
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailErr').textContent = "Invalid email address";
+                isValid = false;
+            } else { document.getElementById('emailErr').textContent = ""; }
+
+            if (!phoneRegex.test(phone)) {
+                document.getElementById('phoneErr').textContent = "Must be 10 digits";
+                isValid = false;
+            } else { document.getElementById('phoneErr').textContent = ""; }
+
+            if (!passRegex.test(password)) {
+                document.getElementById('passErr').textContent = "Must be at least 6 characters";
+                isValid = false;
+            } else { document.getElementById('passErr').textContent = ""; }
+
+            // Step 8: Submit if Valid
+            if (isValid) {
+                alert("Form Submitted Successfully!");
+                this.reset(); // Clears the form fields
+            }
+        });
+    </script>
+</body>
+</html>

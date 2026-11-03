@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic To-Do List</title>
+    <!-- CSS kept separate as per your strict requirement -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>My Tasks</h2>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- JavaScript embedded directly into the HTML to save files -->
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addBtn = document.getElementById('addBtn');
+        const taskList = document.getElementById('taskList');
+
+        addBtn.addEventListener('click', () => {
+            if (taskInput.value.trim() === '') return;
+
+            const li = document.createElement('li');
+            
+            const taskText = document.createElement('span');
+            taskText.textContent = taskInput.value;
+            
+            const actions = document.createElement('div');
+            
+            const checkBtn = document.createElement('button');
+            checkBtn.textContent = '✓';
+            checkBtn.className = 'check-btn';
+            
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'X';
+            delBtn.className = 'del-btn';
+
+            // Events for the newly created buttons
+            checkBtn.addEventListener('click', () => li.classList.toggle('completed'));
+            delBtn.addEventListener('click', () => li.remove());
+
+            actions.append(checkBtn, delBtn);
+            li.append(taskText, actions);
+            taskList.appendChild(li); 
+            
+            taskInput.value = ''; 
+        });
+    </script>
+</body>
+</html>

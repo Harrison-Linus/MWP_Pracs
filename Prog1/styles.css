@@ -1,0 +1,79 @@
+/* --- Base Styling --- */
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* --- 1. FLEXBOX: Header Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937; /* Dark Gray */
+    color: white;
+    padding: 20px 40px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.hero {
+    padding: 80px 20px;
+    background-color: #e5e7eb;
+}
+
+/* --- 2. FLEXBOX: Skills Layout --- */
+.skills-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-badge {
+    background-color: #2563eb; /* Blue */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+/* --- 3. CSS GRID: Projects Layout --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #111827;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* --- 4. MEDIA QUERIES (Tailwind md: equivalent) --- */
+@media (max-width: 768px) {
+    /* Stacks navbar vertically on small screens */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Changes Grid from 3 columns to 1 column on small screens */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
